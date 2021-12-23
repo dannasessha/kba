@@ -1,0 +1,60 @@
+update system and reboot
+paru -Syu zellij
+installed from community arch repo, listed here https://archlinux.org/packages/community/x86_64/zellij/
+mkdir ~/.config/zellij
+zellij setup --dump-config > ~/.config/zellij/config.yaml
+sets up a default config file.
+
+first alpha was early 2021, seems to be client-server model.
+zellij claims to be a 'workspace' and advertises it is more broadly useful than screen or tmux. 
+ie, it has more functionality, features, or bloat.
+"Zellij is a workspace aimed at developers, ops-oriented people and anyone who loves the terminal."
+
+there's really just a few subcommands,
+a [target session]
+attach session
+ls
+list sessions
+k [target session]
+ka
+kill sessions / kill all
+
+There are also a few setup and flag options, but just start with  
+
+zellij
+
+With the application open...
+Notice the sweet bars!
+The Tab Bar at the top, the (adaptive!) Tip Bar at the bottom and I think also the default Status Bar are all examples of plugins.
+Plugins can be written in any language that can compile to webassembly. The plugin API is described as a WIP.
+
+The Tab Bar is giving me my session name [I got (kind-decision) - how nice!] and what tab I am looking at. 
+I believe zellij is _modal_, and the status bar is displaying which mode is being used. Try
+
+<CTRL-t>  
+n
+<CTRL-p>
+n
+
+Cool hunh??
+
+A few things I discovered just browsing around really quickly: <ALT-+> and <ALT--> resize panes in "normal mode" and <CTRL-n> 
+then + - does the same. 
+It's possible to navigate fairly quickly through panes in one or more tabs with <ATL-hjkl>
+
+<CTRL-G> "locked interface mode" seems to stop zellij from interacting with a pane until it is unlocked with the same keybinding.
+
+Config options (including keybindings) and Layout are configurable with YAML. This stuff looks extensive.
+Layouts define the placement of the terminal panes, and can also include other configuration options like what plugins to use.
+ 
+An awesome feature, new in last release, share sessions with others! (I believe including remote connections!)
+
+*strider plugin = console file manager
+*there is a "tmux mode"
+I have contacted a small community on matrix
+I have looked at github stuff.
+
+Planned possible future browser support as frontend.
+
+I also found another rust based multiplexer: https://github.com/austinjones/tab-rs
+
